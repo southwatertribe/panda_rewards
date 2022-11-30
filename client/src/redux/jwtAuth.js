@@ -4,7 +4,7 @@ const initialState = {
 
     isLoggedIn: false
 }
-const jwtAuthSlice = createSlice({
+export const jwtAuthSlice = createSlice({
     name: "AUTH",
     initialState,
     reducers: {
@@ -13,7 +13,6 @@ const jwtAuthSlice = createSlice({
         }
     }
 }); 
-
-
-
+ 
+export const {signedIn} = jwtAuthSlice.actions
 export default jwtAuthSlice.reducer;
