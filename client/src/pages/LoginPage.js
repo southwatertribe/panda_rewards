@@ -3,41 +3,44 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 
+
 //Redux
 import {useDispatch, useSelector} from 'react-redux';
-
 import { signedIn} from '../redux/jwtAuth';
+import {userHandler} from '../utils/userHandler';
 
-function LoginButton() {
+function LoginPage() {
     const dispatch = useDispatch();
     
     function handleGauth(res) {
+        //User Info that just signedIn
         const userIdObject = jwt_decode(res.credential);
-        const token = res 
-        dispatch(signedIn())
-        //TODO CHECK IF USER EXISTS IN DB IN ROUTE BEFORE ADDING!ffd
-        // try {
-        //   
 
-        // //   axios.post('http://localhost:3001/login', {
-        // //           data: userIdObject
-        // //   })
-        // //   .then(function (res) {
-        // //       dispatch(signedIn());
-        // //       console.log(res)
-        // //   })
-        // //   .catch(function (err){
-        // //     console.log(err)
-        // //   })
+        //Acess token
+        const token = res.credential
+
         
-        // // } catch (error) {
-          
-        // // }
+        //TODO CHECK IF USER EXISTS IN DB IN ROUTE BEFORE ADDING!
+
+
+        // //Calls api to send data into database IF NEVER DONE SO
+        // axios.post('http://localhost:3001/login', {
+        //         data: userIdObject
+        // })
+
+        //Update global state to logged in    
+        dispatch(signedIn());
+        //Add jwt to session storage for current session
+        sessionStorage.setItem("accessJWT", token)
+
+        //Update global state to have current user (invokes user action)
+        dispatch(userHandler())
+
         
-        
-        
-        console.log(token)
-        console.log(userIdObject);
+
+        //TO DO Create Refresh in local storage
+
+  
       }
     
       useEffect(() => {
@@ -52,6 +55,7 @@ function LoginButton() {
         );
         google.accounts.id.prompt();
       }, []);
+      
       return (
         <div className="App">
           <div id="signIn"></div>
@@ -60,4 +64,4 @@ function LoginButton() {
       );
 }
 
-export default LoginButton;
+export default LoginPage;
