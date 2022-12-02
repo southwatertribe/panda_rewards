@@ -33,10 +33,10 @@ export const userHandler = () => async (dispatch) => {
             }
         })
         // let user =  await getAUser(email)
-        user = user.data.Items
+        user = user.data.Items[0]
         console.log(user)
         
-        //dispatch(getUserSuccess())        
+        dispatch(getUserSuccess(user))        
     } catch (error) {
         console.log(error)        
     }

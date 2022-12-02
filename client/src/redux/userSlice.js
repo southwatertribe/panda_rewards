@@ -8,8 +8,8 @@ export const userSlice = createSlice({
     name : 'user',
     initialState,
     reducers:{
-        getUserSuccess: (state, {payload})=> {
-            state.user = {payload}
+    getUserSuccess: (state, {payload})=> {
+            state.user = payload
         }
     }
 
