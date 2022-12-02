@@ -2,8 +2,24 @@
 import { getUserSuccess } from "../redux/userSlice";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import { json } from "react-router-dom";
 
-export const userHandler = () => (dispatch) => {
+const getAUser = (email) => {
+    return new Promise(async (resolve,reject)=>{
+        try {
+            const res = await axios.get("http://localhost:3001/login/getUser", {
+                params: {
+                    email: email
+                }
+            })
+            resolve(res.data)
+        } catch (error) {
+            
+        }
+    })
+}
+
+export const userHandler = () => async (dispatch) => {
 
     try {
         //Get session jwt
@@ -11,13 +27,14 @@ export const userHandler = () => (dispatch) => {
         const email = jwt_decode(accessToken)['email']
         
         //Get user info from db to update current state
-        let user = axios.get("http://localhost:3001/login/getUser", {
+        let user = await axios.get("http://localhost:3001/login/getUser", {
             params: {
                 email: email
             }
         })
-
-        
+        // let user =  await getAUser(email)
+        user = user.data.Items
+        console.log(user)
         
         //dispatch(getUserSuccess())        
     } catch (error) {

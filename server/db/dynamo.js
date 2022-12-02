@@ -23,7 +23,7 @@ const addOrUpdateUser = async (user) => {
     return await dynamoClient.put(params).promise();
 }
 
-const getUser = async (email) => {
+const getUser = async(email) => {
     AWS.config.update({
         region: process.env.AWS_DEFAULT_REGION,
         accessKeyId: process.env.AWS_ACCESS_KEY,
@@ -35,23 +35,11 @@ const getUser = async (email) => {
         TableName: TABLE_NAME,
         Item: email
     }
-    const user = await dynamoClient.scan(params).promise();  
-    
-    return user;  
+    return await dynamoClient.scan(params).promise();  
+   
 }
 
 module.exports = {addOrUpdateUser, getUser};
 
 
 
-// const first = {
-//     user_id: '0',
-//     fname: 'daniel',
-//     lname: 'carter',
-//     email: 'imdannycarter@gmail.com',
-//     score: 0,
-//     text: 'oh yeah man this shit was banging i fucking lvoe panda express the amount of times i go there I am just sooooo thankful for you guys making one on campus like its so good',
-// };
-
-
-// addOrUpdateUser(first)
