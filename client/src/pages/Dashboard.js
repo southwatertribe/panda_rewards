@@ -1,6 +1,6 @@
 import React from 'react'
-import SignInForm from '../pages/LoginPage';
-
+import LoginPage from '../components/LoginPage';
+import UserDashboard from '../components/UserDashboard';
 
 
 //Redux
@@ -10,9 +10,10 @@ import {useSelector} from 'react-redux';
 function Dashboard() {
 
   const {isLoggedIn} = useSelector(state => state.auth)
+  const {user} = useSelector(state => state.user )
   return (
     <div>
-        {isLoggedIn ? <h1>You Logged In to Competitive Consumerism</h1>: <SignInForm></SignInForm>}
+        {isLoggedIn ? <UserDashboard user={user}/>: <LoginPage></LoginPage>}
     </div>
   )
 }

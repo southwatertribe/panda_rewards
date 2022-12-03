@@ -35,6 +35,7 @@ const getUser = async(email) => {
         TableName: TABLE_NAME,
         Item: email
     }
+    
     return await dynamoClient.scan(params).promise();  
    
 }

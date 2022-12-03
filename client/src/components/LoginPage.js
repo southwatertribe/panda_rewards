@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 
+//Material 
 
 //Redux
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { signedIn} from '../redux/jwtAuth';
 import {userHandler} from '../utils/userHandler';
 
@@ -14,15 +15,13 @@ function LoginPage() {
     
     function handleGauth(res) {
         //User Info that just signedIn
-        const userIdObject = jwt_decode(res.credential);
+        //const userIdObject = jwt_decode(res.credential);
 
         //Acess token
         const token = res.credential
 
         
         //TODO CHECK IF USER EXISTS IN DB IN ROUTE BEFORE ADDING!
-
-
         // //Calls api to send data into database IF NEVER DONE SO
         // axios.post('http://localhost:3001/login', {
         //         data: userIdObject
@@ -35,9 +34,6 @@ function LoginPage() {
 
         //Update global state to have current user (invokes user action)
         dispatch(userHandler())
-
-        
-
         //TO DO Create Refresh in local storage
 
   
