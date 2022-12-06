@@ -1,6 +1,5 @@
 import React from 'react'
-import LoginPage from '../components/LoginPage';
-import UserDashboard from '../components/UserDashboard';
+
 
 
 //Redux
@@ -13,7 +12,7 @@ function Dashboard() {
   const {user} = useSelector(state => state.user )
   return (
     <div>
-        {isLoggedIn ? <UserDashboard user={user}/>: <LoginPage></LoginPage>}
+        {isLoggedIn ? <p>Welcome {user.f_name}</p>: <p>Error happening</p>}
     </div>
   )
 }
