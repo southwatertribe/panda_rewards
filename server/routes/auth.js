@@ -25,7 +25,6 @@ router.post("/",  async function(req, res, next){
 router.get("/getUser/:email", async function(req,res) {
     console.log("get user for the session")
     let email = req.query.email//Send a param that will be email in axios
-    console.log("Email in the route" + email)
     try {
         const user = await dbFuncs.getUser(email); //Get the promise data   
         res.json(user)     

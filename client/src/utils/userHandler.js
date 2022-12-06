@@ -25,7 +25,6 @@ export const userHandler = () => async (dispatch) => {
         //Get session jwt
         const accessToken = sessionStorage.getItem("accessJWT")
         const email = jwt_decode(accessToken)['email']
-        console.log("Going into axios: " + email)
         
         //Get user info from db to update current state
         let user = await axios.get("http://localhost:3001/login/getUser/:email", {
@@ -33,11 +32,8 @@ export const userHandler = () => async (dispatch) => {
                 email
             }
         })
-        console.log(user)
-        // let user =  await getAUser(email)
-        user = user.data.Item
-        //console.log(user)
         
+        user = user.data.Item
         dispatch(getUserSuccess(user))        
     } catch (error) {
         console.log(error)        
