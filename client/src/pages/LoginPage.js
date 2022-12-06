@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 //Material 
+import {Container} from "@mui/material";
 
 //Redux
 import {useDispatch} from 'react-redux';
@@ -63,10 +64,15 @@ function LoginPage() {
       }, []);
       
       return (
-        <div className="App">
-          <h1>Hey log in to use the app</h1>
-          <div id="signIn"></div>
-        </div>
+        <Container maxWidth="sm">
+          <div className="App">
+            <h1>Hey log in to use the app</h1>
+            <div id="signIn" style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'}}></div>
+          </div>
+        </Container>
       );
 }
 

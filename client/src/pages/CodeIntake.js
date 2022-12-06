@@ -1,5 +1,6 @@
 import React from 'react'
 import LoginPage from './LoginPage';
+import CodeIntakeForm from '../components/codeintakeform';
 //Redux
 import {useSelector} from 'react-redux';
 
@@ -9,7 +10,7 @@ function CodeIntake() {
   const {isLoggedIn} = useSelector(state => state.auth)
   return (
     <div>
-      {isLoggedIn ? <p>Enter code</p> : <LoginPage/>}
+      {isLoggedIn ? <CodeIntakeForm/> : <LoginPage/>}
     </div>
   )
 }

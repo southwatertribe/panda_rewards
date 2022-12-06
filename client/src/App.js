@@ -2,6 +2,7 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import NavBar from './components/NavBar';
+import NavBarDos from './components/NavBarDos';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 import Leaderboard from './pages/Leaderboard';
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-        <NavBar/>
+        <NavBarDos/>
         <Routes>
           <Route path="/" element={<LoginPage/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
