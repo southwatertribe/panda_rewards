@@ -26,7 +26,6 @@ function LoginPage() {
 
         //Acess token
         const token = res.credential
-
         
         //TODO CHECK IF USER EXISTS IN DB IN ROUTE BEFORE ADDING!
         //Calls api to send data into database IF NEVER DONE SO
@@ -64,8 +63,8 @@ function LoginPage() {
       }, []);
       
       return (
-        <Container maxWidth="sm">
-          <div className="App">
+        <Container  maxWidth="sm" >
+          <div>
             <h1>Hey log in to use the app</h1>
             <div id="signIn" style={{
               display: 'flex',

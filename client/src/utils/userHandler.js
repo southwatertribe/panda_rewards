@@ -2,7 +2,6 @@
 import { getUserSuccess } from "../redux/userSlice";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import { json } from "react-router-dom";
 
 // const getAUser = (email) => {
 //     return new Promise(async (resolve,reject)=>{

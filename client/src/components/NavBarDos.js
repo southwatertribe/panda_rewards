@@ -1,10 +1,13 @@
 import * as React from 'react';
+
 //Router
 import {Link} from  "react-router-dom"
-
-
 //Redux
 import {useSelector} from 'react-redux';
+//Styles
+import "./navbar.css"
+
+import { Avatar } from '@mui/material';
 
 //Link Style
 const linkStyle = {
@@ -14,9 +17,11 @@ const linkStyle = {
   };
 
 function ResponsiveAppBar() {
+   const {isLoggedIn} = useSelector(state => state.auth)
+   const {user} = useSelector(state => state.user )
   return (
     <nav className="navigation">
-      <a href="/" className="brand-name">
+      <a href="/" className="brand-name" style={linkStyle}>
         Ranked Panda Rewards
       </a>
       <button className="hamburger">
@@ -38,7 +43,9 @@ function ResponsiveAppBar() {
         <ul>
             <li><Link to="/codeintake" style={linkStyle}>CodeIntake</Link></li>
             <li><Link to="/leaderboard" style={linkStyle}>Leaderboards</Link></li>
+            {isLoggedIn ? <li><Avatar alt="Remy Sharp" src={user.profile} /></li>: <></>}
         </ul>
+        
       </div>
     </nav>
   );
