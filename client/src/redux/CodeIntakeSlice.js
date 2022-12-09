@@ -2,12 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     code: {
-        CN1: "",
-        CN2: "",
-        CN3: "",
-        CN4: "",
-        CN5: "",
-        CN6: "",
-
+        
     }
 }
+
+export const codeIntakeSlice = createSlice({
+    name: "CODE",
+    initialState: initialState,
+    reducers:{
+        getCodeEntry: (state, {payload})=> {
+                state.code = payload
+            }
+        }
+})
+
+export const {getCodeEntry} = codeIntakeSlice.actions
+export default codeIntakeSlice.reducer;

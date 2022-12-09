@@ -1,12 +1,14 @@
 import {configureStore} from '@reduxjs/toolkit';
 import  jwtAuthReducer  from '../jwtAuth';
-import userSliceReducer from '../userSlice';
+import userReducer from '../userSlice';
+import codeIntakeReducer from '../codeIntakeSlice';
 
 export const store = configureStore({
     reducer: {
         auth: jwtAuthReducer,
-        user: userSliceReducer
-    },
+        user: userReducer,
+        code: codeIntakeReducer
+    }
     
 })
 

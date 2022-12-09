@@ -22,7 +22,7 @@ function ResponsiveAppBar() {
   return (
     <nav className="navigation">
       <a href="/" className="brand-name" style={linkStyle}>
-        Ranked Panda Rewards
+        Panda Rewards Bot
       </a>
       <button className="hamburger">
         {/* icon from heroicons.com */}
@@ -43,7 +43,7 @@ function ResponsiveAppBar() {
         <ul>
             <li><Link to="/codeintake" style={linkStyle}>CodeIntake</Link></li>
             <li><Link to="/leaderboard" style={linkStyle}>Leaderboards</Link></li>
-            {isLoggedIn ? <li><Avatar alt="Remy Sharp" src={user.profile} /></li>: <></>}
+            {isLoggedIn ? <li><Avatar alt="N/A" src={user.profile} /></li>: <></>}
         </ul>
         
       </div>

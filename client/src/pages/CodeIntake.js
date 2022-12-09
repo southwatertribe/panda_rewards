@@ -1,8 +1,9 @@
 import React from 'react'
 import LoginPage from './LoginPage';
-import CodeIntakeForm from '../components/codeintakeform';
+import CodeIntakeForm from '../components/CodeIntakeForm';
 //Redux
 import {useSelector} from 'react-redux';
+
 
 //This is gonna be a form of 6 for the guest code
 
