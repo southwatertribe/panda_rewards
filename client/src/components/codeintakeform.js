@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
+import axios from 'axios';
+
+
 
 //Redux
+import {useSelector} from 'react-redux';
+
 import {useDispatch} from 'react-redux';
 import { getCodeEntry } from '../redux/codeIntakeSlice';
 
 function CodeIntakeForm() {
+
+  const {user} = useSelector(state => state.user )
 
   const dispatch = useDispatch();
 
@@ -27,9 +34,26 @@ function CodeIntakeForm() {
       CN6: CN6,
     }
 
+    const userInfo = {
+      code: code,
+      user: user
+    }
+    
+    console.log(userInfo)
+
     dispatch(getCodeEntry(code))
 
+    axios.post("https://6gzwnr5576chzorjos2vmii4jq0kzunw.lambda-url.us-west-1.on.aws/",{
+      
+       data: {
+        "india": "country"
+       }
+       
+    }).then((response) => console.log(response))
+
   }
+
+  
   return (
     <div>
       <h3>Insert Receipt Code</h3>
