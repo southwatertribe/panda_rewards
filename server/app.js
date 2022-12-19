@@ -6,6 +6,7 @@ var cors = require('cors')
 
 //Routes
 const authRouter = require("./routes/auth.js")
+const codeIntake = require("./routes/codeIntake")
 
 var isprod = process.env.NODE_ENV === "production";
 
@@ -17,6 +18,7 @@ const startServer = async () => {
 
   //Routes Middle Ware
   app.use("/login", authRouter);
+  app.use("/codeintake", codeIntake)
 
   console.log(`NODE_ENV=${process.env.NODE_ENV}`);
 

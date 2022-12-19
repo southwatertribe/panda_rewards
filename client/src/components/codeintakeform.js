@@ -39,17 +39,13 @@ function CodeIntakeForm() {
       user: user
     }
     
-    console.log(userInfo)
+  
 
     dispatch(getCodeEntry(code))
 
-    axios.post("https://6gzwnr5576chzorjos2vmii4jq0kzunw.lambda-url.us-west-1.on.aws/",{
-      
-       data: {
-        "india": "country"
-       }
-       
-    }).then((response) => console.log(response))
+    axios.post("http://localhost:3001/codeintake/",
+       userInfo      
+    )
 
   }
 
