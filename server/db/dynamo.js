@@ -37,7 +37,36 @@ const getUser = async(user_email) => {
    
 }
 
-module.exports = {addOrUpdateUser, getUser};
+const incrementScore = async(user_email) => {
+    const TABLE_NAME = "RCConsume";
+    expression_attribute_names = {'#v': 'score'}
+    expression_attribute_values = {':inc': {'N': '9'}}
+    update_expression = 'ADD #v :inc'
+
+    
+    const params = {
+        TableName: TABLE_NAME,
+        Key: {
+            user_email: user_email
+        },
+        UpdateExpression: 'set score = score + :val',
+        ExpressionAttributeValues: {
+          ':val': 9
+        }
+      };
+      
+
+    return dynamoClient.update(params, function(err, data) {
+        if (err) {
+          console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+          console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+        }
+      });
+        
+}
+
+module.exports = {addOrUpdateUser, getUser, incrementScore};
 
 
 
