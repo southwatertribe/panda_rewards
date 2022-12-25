@@ -18,20 +18,35 @@ function LoginPage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    function handleGauth(res) {
+    const  handleGauth =  async (res) => {
         //User Info that just signedIn
         const userIdObject = jwt_decode(res.credential);
-        console.log(userIdObject)
-
 
         //Acess token
         const token = res.credential
         
-        //TODO CHECK IF USER EXISTS IN DB IN ROUTE BEFORE ADDING!
-        //Calls api to send data into database IF NEVER DONE SO
-        axios.post('http://localhost:3001/login', {
-                data: userIdObject
+        
+        // //TODO CHECK IF USER EXISTS IN DB IN ROUTE BEFORE ADDING!
+        // Get user to check if they exist 
+        let user = await axios.get("http://localhost:3001/login/getUser/:email", {
+            params: {
+                email: userIdObject['email']
+            }
         })
+
+        user = user.data.Item['email']
+
+
+        if (user == userIdObject['email']) {
+            //Calls api to send data into database IF NEVER DONE SO
+            axios.post('http://localhost:3001/login', {
+                      data: userIdObject
+            })
+        }
+        
+        console.log(user)
+
+        
         
         //Update global state to logged in    
         dispatch(signedIn());

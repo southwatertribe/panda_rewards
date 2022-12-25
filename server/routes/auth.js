@@ -27,12 +27,13 @@ router.get("/getUser/:email", async function(req,res) {
     let email = req.query.email//Send a param that will be email in axios
     try {
         const user = await dbFuncs.getUser(email); //Get the promise data   
-        res.json(user)     
+        res.json(user)
+        console.log(user.email)     
         
     } catch (error) {
         console.log(error)        
-    }
-    
+    } 
+
     
 })
 module.exports = router;

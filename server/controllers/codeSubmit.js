@@ -12,7 +12,7 @@ const codeSubmit = async (entry) => {
     })
 
     //Debug DELETE IN PROD
-    console.log("RESPONSE:" + resp['data'])
+    console.log(resp['data'])
 
     if(resp['data'] == "Sucess"){
         //TODO INCREMENT SCORE
@@ -20,7 +20,6 @@ const codeSubmit = async (entry) => {
 
     }
 
-    console.log(response)
 
 }
 
