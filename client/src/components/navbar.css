@@ -42,7 +42,7 @@
     width: 40px;
     padding: 0.5rem;
     border-radius: 50%;
-    background-color: #283b8b;
+    background-color: #5c374c;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
     position: absolute;
@@ -52,5 +52,58 @@
     display: none;
   }
   .hamburger:hover {
-    background-color: #2642af;
+    background-color: #5c374c;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .navigation-menu ul {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .navigation-menu ul {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      flex-direction: column;
+      width: 100%;
+      height: calc(100vh - 77px);
+      background-color: #5C374C;
+      border-top: 1px solid black;
+    }
+    .navigation-menu li {
+      text-align: center;
+      margin: 0;
+    }
+    .navigation-menu li a {
+      color: black;
+      width: 100%;
+      padding: 1.5rem 0;
+    }
+    .navigation-menu li:hover {
+      background-color: #eee;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .navigation-menu ul {
+      /* previous styles */
+      dipslay: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .navigation-menu.expanded ul {
+      display: block;
+    }
+  }
+
+  .disappear {
+    display: none;
   }
