@@ -66,7 +66,33 @@ const incrementScore = async(user_email) => {
         
 }
 
-module.exports = {addOrUpdateUser, getUser, incrementScore};
+const getAllPlayers = async()=> {
+  const TABLE_NAME = "RCConsume";
+  const projectionExpression = "f_name, l_name, score, profile"
+  const params = {
+    TableName: TABLE_NAME,
+    ProjectionExpression: projectionExpression
+  };
+  let players = []
+  let data;
+  
+  do {
+    data = await dynamoClient.scan(params).promise();
+    console.log(data)
+    console.log(players)
+    players.push(...data.Items)
+    console.log(data.LastEvaluatedKey)
+    params.ExclusiveStartKey = data.LastEvaluatedKey
+  }while(typeof data.LastEvaluatedKey !== 'undefined');  
+  
+  console.log(players)
+
+  // return players;
+}
+
+module.exports = {addOrUpdateUser, getUser, incrementScore, getAllPlayers};
+
+
 
 
 

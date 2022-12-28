@@ -5,8 +5,9 @@ require('dotenv').config();
 var cors = require('cors')
 
 //Routes
-const authRouter = require("./routes/auth.js")
+const authRouter = require("./routes/auth")
 const codeIntake = require("./routes/codeIntake")
+const leaderBoards = require("./routes/leaderboards")
 
 var isprod = process.env.NODE_ENV === "production";
 
@@ -19,6 +20,7 @@ const startServer = async () => {
   //Routes Middle Ware
   app.use("/login", authRouter);
   app.use("/codeintake", codeIntake)
+  app.use("/leaderboards", leaderBoards)
 
   console.log(`NODE_ENV=${process.env.NODE_ENV}`);
 
