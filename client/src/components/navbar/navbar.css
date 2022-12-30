@@ -107,3 +107,8 @@
   .disappear {
     display: none;
   }
+
+  p {
+    color: white;
+    
+  }

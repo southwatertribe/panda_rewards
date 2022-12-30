@@ -8,7 +8,7 @@ import {useSelector} from 'react-redux';
 import "./navbar.css"
 
 import { Avatar } from '@mui/material';
-import Panda from '../../assets/panda-logo.png'
+import Panda from '../../assets/mascot.png'
 
 //Link Style
 const linkStyle = {
@@ -24,10 +24,13 @@ function ResponsiveAppBar() {
    const [isNavExpanded, setIsNavExpanded] = useState(false)
   return (
     <nav className="navigation">
-      <img src={Panda} alt="BodegaCat" width="100" />
+      <img src={Panda} alt="BodegaCat" width="70" />
+      <div>
       <a href="/" className="brand-name" style={linkStyle}>
         Panda Rewards Bot
       </a>
+      <p style={{marginTop: "0px"}}>Competitive Consumerism</p>
+      </div>
       <button className="hamburger"
       onClick={() => {
         setIsNavExpanded(!isNavExpanded);

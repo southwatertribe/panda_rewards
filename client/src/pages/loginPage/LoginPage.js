@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import '../loginPage/login.css'
 
 //Assets
-import Mascot from '../../assets/mascot.png'
+import Mascot from '../../assets/panda-logo.png'
 
 //Redux
 import {useDispatch} from 'react-redux';
@@ -40,7 +40,7 @@ function LoginPage() {
         user = user.data.Item['email']
 
 
-        if (user == userIdObject['email']) {
+        if (user === userIdObject['email']) {
             //Calls api to send data into database IF NEVER DONE SO
             axios.post('http://localhost:3001/login', {
                       data: userIdObject
@@ -85,13 +85,14 @@ function LoginPage() {
           <div className="main-login-card">
             <h1>Log In To Start Earning</h1>
             <div style={{height: "100", width: "100", display: 'flex', alignItems: 'center',
-              justifyContent: 'center'}}><img src={Mascot} alt="BodegaCat" width="100"  /></div>
-            <h2 style={{marginTop: '100px'}}>Panda Bot</h2>
+              justifyContent: 'center'}}><img src={Mascot} alt="BodegaCat" width="300"  /></div>
+            
             <div id="signIn" style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              borderRadius: '0px'}}></div>
+              borderRadius: '0px',
+              marginTop: '100px'}}></div>
           </div>
        
       );

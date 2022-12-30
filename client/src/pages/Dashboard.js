@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UserDash from '../components/UserDash';
+import UserDash from '../components/userdash/UserDash';
 
 //Redux
 import {useSelector} from 'react-redux';

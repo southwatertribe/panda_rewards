@@ -23,6 +23,12 @@ function CodeIntakeForm() {
   const [CN5, setCN5] = useState('');
   const [CN6, setCN6] = useState('');
 
+  const handle = (e) => {
+    const { maxLength, value, name } = e.target;
+    const [cn, cnIndex] = name.split('-')
+    console.log(cnIndex)
+  }
+  
   const submitForm = (e) => {
     e.preventDefault();
 
@@ -40,6 +46,7 @@ function CodeIntakeForm() {
       user: user
     }
     
+    
   
 
     dispatch(getCodeEntry(code))
@@ -55,69 +62,70 @@ function CodeIntakeForm() {
     <div className='main-form'>
       <h3>Insert Receipt Code</h3>
       <form onSubmit={submitForm}>
-      <label>CN1 - 
+      <label>CN1 
       <input 
         type="text" 
-        name="CN1" 
+        name="CN-1" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>setCN1(e.target.value)}
+        onChange={(e)=>handle(e)}
         value={CN1}
+        autoFocus
         //value={CN1 || ""} 
       />
       </label>
       
-      <label>CN2 -
+      <label>CN2 
       <input 
         type="text" 
-        name="CN2" 
+        name="CN-2" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>setCN2(e.target.value)}
+        onChange={(e)=>handle(e)}
         value={CN2}
         //value={CN1 || ""} 
       />
       </label>
-      <label>CN3 -
+      <label>CN3 
       <input 
         type="text" 
-        name="CN3" 
+        name="CN-3" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>setCN3(e.target.value)}
+        onChange={(e)=>handle(e)}
         value={CN3}
         //value={CN1 || ""} 
       />
       </label>
-      <label>CN4 -
+      <label>CN4 
       <input 
         type="text" 
-        name="CN4" 
+        name="CN-4" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>setCN4(e.target.value)}
+        onChange={(e)=>handle(e)}
         value={CN4}
         //value={CN1 || ""} 
       />
       </label>
-      <label>CN5 -
+      <label>CN5 
       <input 
         type="text" 
-        name="CN5" 
+        name="CN-5" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>setCN5(e.target.value)}
+        onChange={(e)=>handle(e)}
         value={CN5}
         //value={CN1 || ""} 
       />
       </label>
-      <label>CN6 -
+      <label>CN6 
       <input 
         type="text" 
-        name="CN6" 
+        name="CN-6" 
         maxLength={2}
         minLength={2}
-        onChange={(e)=>setCN6(e.target.value)}
+        onChange={(e)=>handle(e)}
         value={CN6}
         //value={CN1 || ""} 
       />
