@@ -6,13 +6,16 @@ import jwt_decode from "jwt-decode";
 //Router 
 import { useNavigate } from "react-router-dom";
 
-//Material 
-import {Container} from "@mui/material";
+//Styles
+import '../loginPage/login.css'
+
+//Assets
+import Mascot from '../../assets/mascot.png'
 
 //Redux
 import {useDispatch} from 'react-redux';
-import { signedIn} from '../redux/jwtAuth';
-import {userHandler} from '../utils/userHandler';
+import { signedIn} from '../../redux/jwtAuth';
+import {userHandler} from '../../utils/userHandler';
 
 function LoginPage() {
     const dispatch = useDispatch();
@@ -78,15 +81,19 @@ function LoginPage() {
       }, []);
       
       return (
-        <Container  maxWidth="sm" >
-          <div>
-            <h1>Hey log in to use the app</h1>
+        
+          <div className="main-login-card">
+            <h1>Log In To Start Earning</h1>
+            <div style={{height: "100", width: "100", display: 'flex', alignItems: 'center',
+              justifyContent: 'center'}}><img src={Mascot} alt="BodegaCat" width="100"  /></div>
+            <h2 style={{marginTop: '100px'}}>Panda Bot</h2>
             <div id="signIn" style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'}}></div>
+              justifyContent: 'center',
+              borderRadius: '0px'}}></div>
           </div>
-        </Container>
+       
       );
 }
 

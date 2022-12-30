@@ -2,11 +2,11 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
-import NavBarDos from './components/NavBarDos';
-import LoginPage from './pages/LoginPage';
+import NavBarDos from './components/navbar/NavBarDos';
+import LoginPage from './pages/loginPage/LoginPage';
 import Dashboard from './pages/Dashboard';
 import Leaderboard from './pages/Leaderboard';
-import CodeIntake from './pages/CodeIntake';
+import CodeIntake from './pages/codeintakepage/CodeIntake';
 
 
 

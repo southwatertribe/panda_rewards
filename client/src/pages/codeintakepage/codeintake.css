@@ -1,0 +1,10 @@
+.receipt {
+    padding-left: 50px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .receipt  {
+      display: none;
+    }
+  }

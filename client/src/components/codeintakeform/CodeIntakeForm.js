@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 
-
+//Styles
+import './codeintake.css'
 
 //Redux
 import {useSelector} from 'react-redux';
 
 import {useDispatch} from 'react-redux';
-import { getCodeEntry } from '../redux/codeIntakeSlice';
+import { getCodeEntry } from '../../redux/codeIntakeSlice';
 
 function CodeIntakeForm() {
 
@@ -51,65 +52,71 @@ function CodeIntakeForm() {
 
   
   return (
-    <div>
+    <div className='main-form'>
       <h3>Insert Receipt Code</h3>
       <form onSubmit={submitForm}>
-      <label>CN1:
+      <label>CN1 - 
       <input 
         type="text" 
         name="CN1" 
         maxLength={4}
+        minLength={4}
         onChange={(e)=>setCN1(e.target.value)}
         value={CN1}
         //value={CN1 || ""} 
       />
       </label>
-      <p>-</p>
-      <label>CN2:
+      
+      <label>CN2 -
       <input 
         type="text" 
-        name="CN1" 
+        name="CN2" 
         maxLength={4}
+        minLength={4}
         onChange={(e)=>setCN2(e.target.value)}
         value={CN2}
         //value={CN1 || ""} 
       />
-      </label>3
-      <label>CN
+      </label>
+      <label>CN3 -
       <input 
         type="text" 
-        name="CN1" 
+        name="CN3" 
         maxLength={4}
+        minLength={4}
         onChange={(e)=>setCN3(e.target.value)}
         value={CN3}
         //value={CN1 || ""} 
       />
       </label>
-      <label>CN4
+      <label>CN4 -
       <input 
         type="text" 
-        name="CN1" 
+        name="CN4" 
         maxLength={4}
+        minLength={4}
         onChange={(e)=>setCN4(e.target.value)}
         value={CN4}
         //value={CN1 || ""} 
       />
       </label>
-      <label>CN5
+      <label>CN5 -
       <input 
         type="text" 
-        name="CN1" 
+        name="CN5" 
         maxLength={4}
+        minLength={4}
         onChange={(e)=>setCN5(e.target.value)}
         value={CN5}
         //value={CN1 || ""} 
       />
       </label>
-      <label>CN6
+      <label>CN6 -
       <input 
         type="text" 
-        name="CN1" 
+        name="CN6" 
         maxLength={2}
+        minLength={2}
         onChange={(e)=>setCN6(e.target.value)}
         value={CN6}
         //value={CN1 || ""} 
@@ -119,6 +126,10 @@ function CodeIntakeForm() {
         <button type='submit'>send code to bot</button>
       </div>
     </form>
+    <div style={{marginTop: "60px"}}>
+      <h3>Your 22 character long code should be on your receipt.</h3>
+      
+    </div>
     </div>
   )
 }
