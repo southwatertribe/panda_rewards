@@ -71,7 +71,7 @@ function ResponsiveAppBar() {
                 Dashboard
               </Link>
             </li>
-            {isLoggedIn ? <li style={linkStyle} className={isNavExpanded ? "disappear" : "navigation-menu"}><Avatar alt="N/A" src={user.profile}/></li>:<></>}
+            {isLoggedIn ? <li style={linkStyle} className={ "avi"}><Avatar alt="N/A"  src={user.profile}/></li>:<></>}
         </ul>
         
       </div>

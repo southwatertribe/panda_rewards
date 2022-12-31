@@ -23,16 +23,7 @@ function CodeIntakeForm() {
   const [CN5, setCN5] = useState('');
   const [CN6, setCN6] = useState('');
 
-  // const handle = (e) => {
-  //   const { maxLength, value, name } = e.target;
-  //   const [cn, cnIndex] = name.split('-')
-    
-  //   //Check if max has reached
-  //   // if (value.lenngth == maxLength) {
-      
-  //   // }
-  //   console.log(value.length)
-  // }
+
   
   const submitForm = (e) => {
     e.preventDefault();
@@ -146,5 +137,6 @@ function CodeIntakeForm() {
     </div>
   )
 }
+
 
 export default CodeIntakeForm

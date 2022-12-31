@@ -104,9 +104,17 @@
     }
   }
 
+  @media screen and (max-width: 768px) {
+    .avi {
+      display: none;
+    }
+  }
+
   .disappear {
     display: none;
   }
+
+
 
   p {
     color: white;
