@@ -12,7 +12,7 @@ import { getCodeEntry } from '../../redux/codeIntakeSlice';
 
 function CodeIntakeForm() {
 
-  const {user} = useSelector(state => state.user )
+  const user = useSelector(state => state.persistedReducer.user.user )
 
   const dispatch = useDispatch();
 

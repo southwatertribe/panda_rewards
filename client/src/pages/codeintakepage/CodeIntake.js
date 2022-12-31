@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux';
 import './codeintake.css'
 
 function CodeIntake() {
-  const {isLoggedIn} = useSelector(state => state.auth)
+  const isLoggedIn = useSelector(state => state.persistedReducer.auth)
   return (
     <div style={{display: "flex", justifyContent: "center"}}>
       {isLoggedIn ? <CodeIntakeForm/> : <LoginPage/>}

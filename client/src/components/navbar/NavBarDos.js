@@ -19,8 +19,8 @@ const linkStyle = {
 //Avatar style
 
 function ResponsiveAppBar() {
-   const {isLoggedIn} = useSelector(state => state.auth)
-   const {user} = useSelector(state => state.user )
+   const isLoggedIn = useSelector(state => state.auth)
+   const user = useSelector(state => state.user )
    const [isNavExpanded, setIsNavExpanded] = useState(false)
   return (
     <nav className="navigation">

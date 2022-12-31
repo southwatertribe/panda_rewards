@@ -9,7 +9,7 @@ import "./userdash.css"
 
 
 function UserDash() {
-    const {user} = useSelector(state => state.user )
+    const user = useSelector(state => state.persistedReducer.user.user )
   return (
     <div className='main-dash'>
       <h3>Welcome to your dashboard, {user.f_name}. Your Score: {user.score}</h3>

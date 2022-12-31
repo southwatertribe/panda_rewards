@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-
     isLoggedIn: false
 }
 export const jwtAuthSlice = createSlice({

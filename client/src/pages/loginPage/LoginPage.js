@@ -47,7 +47,7 @@ function LoginPage() {
             })
         }
         
-        console.log(user)
+       
 
         
         
