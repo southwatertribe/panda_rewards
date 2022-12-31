@@ -8,3 +8,66 @@
     border-radius: 20px;
 
 }
+
+.minecraft {
+    display: block;
+    max-width: 150px;
+    position: absolute;
+    left: 400px;
+    transform: rotate(-39deg);
+    color: white;
+  text-shadow:
+      0 0 7px #B72D0F,
+    0 0 10px #B72D0F,
+    0 0 21px #B72D0F,
+    0 0 42px #B72D0F,
+    0 0 82px #B72D0F,
+    0 0 92px #B72D0F,
+    0 0 102px #B72D0F,
+    0 0 151px #B72D0F;
+}
+
+
+h4 {
+    font-size: 1.2rem;
+    animation: flicker 1.5s infinite alternate;     
+  }
+
+@keyframes flicker {
+    0%, 18%, 20% {
+      text-shadow:
+        0 0 4px #B72D0F,
+        0 0 11px #B72D0F,
+        0 0 19px #B72D0F,
+        0 0 40px #B72D0F,
+        0 0 80px #B72D0F,
+        0 0 50px #B72D0F,
+        0 0 50px #B72D0F,
+        0 0 80px #B72D0F;
+    }
+    0% {       
+      text-shadow: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .minecraft {
+        display: block;
+        z-index: 99;
+        max-width: 130px;
+        position: absolute;
+        top: 13em;
+        left: 280px;
+        transform: rotate(39deg);
+        color: white;
+      text-shadow:
+          0 0 7px #B72D0F,
+        0 0 10px #B72D0F,
+        0 0 21px #B72D0F,
+        0 0 42px #B72D0F,
+        0 0 82px #B72D0F,
+        0 0 92px #B72D0F,
+        0 0 102px #B72D0F,
+        0 0 151px #B72D0F;
+    }
+  }

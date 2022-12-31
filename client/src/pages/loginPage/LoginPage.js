@@ -84,6 +84,7 @@ function LoginPage() {
         
           <div className="main-login-card">
             <h1>Log In To Start Earning</h1>
+             <div className="minecraft"><h4>Its a recession! You need it!</h4></div>
             <div style={{height: "100", width: "100", display: 'flex', alignItems: 'center',
               justifyContent: 'center'}}><img src={Mascot} alt="BodegaCat" width="300"  /></div>
             

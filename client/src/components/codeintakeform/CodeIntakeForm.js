@@ -23,11 +23,16 @@ function CodeIntakeForm() {
   const [CN5, setCN5] = useState('');
   const [CN6, setCN6] = useState('');
 
-  const handle = (e) => {
-    const { maxLength, value, name } = e.target;
-    const [cn, cnIndex] = name.split('-')
-    console.log(cnIndex)
-  }
+  // const handle = (e) => {
+  //   const { maxLength, value, name } = e.target;
+  //   const [cn, cnIndex] = name.split('-')
+    
+  //   //Check if max has reached
+  //   // if (value.lenngth == maxLength) {
+      
+  //   // }
+  //   console.log(value.length)
+  // }
   
   const submitForm = (e) => {
     e.preventDefault();
@@ -68,7 +73,7 @@ function CodeIntakeForm() {
         name="CN-1" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>handle(e)}
+        onChange={(e)=>setCN1(e.target.value)}
         value={CN1}
         autoFocus
         //value={CN1 || ""} 
@@ -81,7 +86,7 @@ function CodeIntakeForm() {
         name="CN-2" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>handle(e)}
+        onChange={(e)=>setCN2(e.target.value)}
         value={CN2}
         //value={CN1 || ""} 
       />
@@ -92,7 +97,7 @@ function CodeIntakeForm() {
         name="CN-3" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>handle(e)}
+        onChange={(e)=>setCN3(e.target.value)}
         value={CN3}
         //value={CN1 || ""} 
       />
@@ -103,7 +108,7 @@ function CodeIntakeForm() {
         name="CN-4" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>handle(e)}
+        onChange={(e)=>setCN4(e.target.value)}
         value={CN4}
         //value={CN1 || ""} 
       />
@@ -114,7 +119,7 @@ function CodeIntakeForm() {
         name="CN-5" 
         maxLength={4}
         minLength={4}
-        onChange={(e)=>handle(e)}
+        onChange={(e)=>setCN5(e.target.value)}
         value={CN5}
         //value={CN1 || ""} 
       />
@@ -125,7 +130,7 @@ function CodeIntakeForm() {
         name="CN-6" 
         maxLength={2}
         minLength={2}
-        onChange={(e)=>handle(e)}
+        onChange={(e)=>setCN6(e.target.value)}
         value={CN6}
         //value={CN1 || ""} 
       />
