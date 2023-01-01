@@ -12,14 +12,17 @@ const codeSubmit = async (entry) => {
     })
 
     //Debug DELETE IN PROD
-    console.log(resp['data'])
+    message = resp['data']
+    console.log(message)
+    
 
-    if(resp['data'] == "Sucess"){
+    if(message == "Sucess"){
         //TODO INCREMENT SCORE
         response = await dbFuncs.incrementScore(entry.user.user_email)
 
     }
 
+    return message
 
 }
 

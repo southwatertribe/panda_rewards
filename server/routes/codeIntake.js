@@ -8,7 +8,9 @@ router.post("/", async function (req, res, next) {
     console.log(userData)
     // console.log("THE REQUEST")
     // console.log(req)
-    codeIntake.codeSubmit(userData)
+    const message = await codeIntake.codeSubmit(userData)
+
+    res.json(message)
 })
 
 
