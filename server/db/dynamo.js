@@ -73,21 +73,21 @@ const getAllPlayers = async()=> {
     TableName: TABLE_NAME,
     ProjectionExpression: projectionExpression
   };
-  let players = []
-  let data;
+  const players = await dynamoClient.scan(params).promise();
+  // let data;
   
-  do {
-    data = await dynamoClient.scan(params).promise();
-    console.log(data)
-    console.log(players)
-    players.push(...data.Items)
-    console.log(data.LastEvaluatedKey)
-    params.ExclusiveStartKey = data.LastEvaluatedKey
-  }while(typeof data.LastEvaluatedKey !== 'undefined');  
+  // do {
+  //   data = await dynamoClient.scan(params).promise();
+  //   console.log(data)
+  //   console.log(players)
+  //   players.push(...data.Items)
+  //   console.log(data.LastEvaluatedKey)
+  //   params.ExclusiveStartKey = data.LastEvaluatedKey
+  // }while(typeof data.LastEvaluatedKey !== 'undefined');  
   
-  console.log(players)
+  // console.log(players)
 
-  // return players;
+  return players;
 }
 
 module.exports = {addOrUpdateUser, getUser, incrementScore, getAllPlayers};

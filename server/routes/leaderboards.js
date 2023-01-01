@@ -3,8 +3,8 @@ const router = express.Router()
 const dbFuncs = require("../db/dynamo.js")
 
 router.get("/", async function(req, res){
-    return await dbFuncs.getAllPlayers()
-   
+    const players = await dbFuncs.getAllPlayers()
+    res.json(players)
 })
 
 module.exports = router

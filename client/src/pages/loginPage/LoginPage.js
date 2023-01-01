@@ -37,6 +37,7 @@ function LoginPage() {
             }
         })
 
+       
         user = user.data.Item['email']
 
 
@@ -45,7 +46,7 @@ function LoginPage() {
             axios.post('http://localhost:3001/login', {
                       data: userIdObject
             })
-        }
+        } else
         
        
 

@@ -5,8 +5,25 @@
 }
 
 .profile {
-    margin-left: 6em;    
+      
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+
 }
+
+.avi {
+    width: 80;
+    border-radius: 50%;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
 
 h3 {
     color: white;

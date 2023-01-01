@@ -3,6 +3,8 @@ import  jwtAuthReducer  from '../jwtAuth';
 import userReducer from '../userSlice';
 import codeIntakeReducer from '../codeIntakeSlice';
 import storage from 'redux-persist/lib/storage';
+import storageSession from 'redux-persist/lib/storage/session'
+
 import { combineReducers } from 'redux';
 import {
     persistReducer,
@@ -16,7 +18,7 @@ import {
 
 const persistConfig = {
     key: 'counter',
-    storage
+    storage: storageSession
 };
 
 const reducers = combineReducers({
