@@ -2,6 +2,7 @@
     
     justify-content: center;
     align-items: center;
+    padding-top: 2em;
 }
 
 .profile {
@@ -12,7 +13,7 @@
 
 }
 
-.avi {
+.aviDash {
     width: 80;
     border-radius: 50%;
 }

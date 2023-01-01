@@ -16,7 +16,7 @@ function UserDash() {
     <div className='main-dash'>
       <h3>Welcome to your dashboard, {user.f_name}. Here are your stats.</h3>
       <div className='profile'>
-        <img src={user.profile} alt="N/A" className='avi'/>
+        <img src={user.profile} alt="N/A" className='aviDash'/>
         <p>Player Name: {user.f_name}</p>
       </div>
       <div className='stats'>

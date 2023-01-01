@@ -38,15 +38,15 @@ function LoginPage() {
         })
 
        
-        user = user.data.Item['email']
+        console.log()
 
 
-        if (user === userIdObject['email']) {
+        if (Object.keys(user.data).length === 0) {
             //Calls api to send data into database IF NEVER DONE SO
             axios.post('http://localhost:3001/login', {
                       data: userIdObject
             })
-        } else
+        } 
         
        
 
