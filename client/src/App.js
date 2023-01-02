@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <NavBarDos/>
         <Routes>
-          <Route path="/" element={<LoginPage/>}/>
+          <Route path="/" element={<Dashboard/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/leaderboard" element={<Leaderboard/>}/>
           <Route path="/codeintake" element={<CodeIntake/>}/>
