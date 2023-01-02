@@ -1,8 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
+import axios from 'axios';
+import Players from '../components/leaderboardsinfo/Players';
 
 function Leaderboard() {
+  const [players, setPlayers] = useState([]);
+  const getPlayers = async () => {
+    if (players.length === 0) {
+      console.log("eh>")
+        axios.get("http://localhost:3001/leaderboards/").then((res)=>{
+        sortPlayers(res.data)
+        setPlayers(res.data)       
+      }).catch(console.error)      
+    }
+  }
+
+  const sortPlayers = (players) => {
+    let sortedPlayers = players.sort(
+      (p1, p2) => (p1.score < p2.score) ? 1 : (p1.score > p2.score) ? -1 : 0);
+    console.log(players[0].score)
+  }
+  
+  useEffect(() => {
+    getPlayers()
+    
+  }, [])
+    
+  console.log(players)
   return (
-    <div>LeaderBoards are being built. Scores will still be tracked and updated.</div>
+    <div>
+      <Players players={players}/>
+    </div>
   )
 }
 

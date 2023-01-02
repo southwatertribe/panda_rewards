@@ -57,6 +57,10 @@ function CodeIntakeForm() {
     ).then((res)=> {
       setResult(res.data)
       setWorking(false)
+    }).catch((err)=>{
+      console.log("Error was: " + err)
+      setResult(err)
+      setWorking(false)
     })
 
   }
@@ -66,8 +70,10 @@ function CodeIntakeForm() {
     const message = props.result
     if (message === "Wrong Code!") {
       return <h1>Looks like that code did not work. Try it again.</h1>;      
-    }else{
-      return <h1>Sruvey was successfully completed! Check your email for your free entree 😏 it might be in your promotions folder.</h1>;
+    } else if (message === "Success") {
+      return <h1>Survey was successfully completed! Check your email for your free entree 😏 it might be in your promotions folder.</h1>;
+    } else{
+      return <h1>Looks like theres a problem on our side, try again later.</h1>;
     } 
   }
 
