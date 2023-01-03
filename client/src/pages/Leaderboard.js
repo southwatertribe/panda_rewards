@@ -17,7 +17,7 @@ function Leaderboard() {
   }
 
   const sortPlayers = (players) => {
-    let players = players.sort(
+    players = players.sort(
       (p1, p2) => (p1.score < p2.score) ? 1 : (p1.score > p2.score) ? -1 : 0);
     console.log(players[0].score)
   }
