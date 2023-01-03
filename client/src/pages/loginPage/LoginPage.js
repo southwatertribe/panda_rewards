@@ -37,8 +37,7 @@ function LoginPage() {
             }
         })
 
-       
-        console.log()
+  
 
 
         if (Object.keys(user.data).length === 0) {
@@ -63,7 +62,7 @@ function LoginPage() {
 
         //Redirect
         navigate(
-          "/dashboard"
+          "/"
         )
 
       }

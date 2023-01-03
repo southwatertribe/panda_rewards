@@ -18,21 +18,17 @@ function App() {
           <BrowserRouter>
           <NavBarDos/>
           <Routes>
-              <Route path="/dashboard" element={
-              <ProtectedRoute>
-              <Dashboard/>
-              </ProtectedRoute>
-              }/>
-              <Route path="/codeintake" element={
-              <ProtectedRoute>
-              <CodeIntake/>
-              </ProtectedRoute>
-              }/>
-              <Route path="/" element={
-              <ProtectedRoute>
-              <Dashboard/>
-              </ProtectedRoute>
-              }/>
+          <Route path="/" element={
+          <ProtectedRoute>
+          <Dashboard/>
+          </ProtectedRoute>
+          }/>
+          <Route path="/codeintake" element={
+          <ProtectedRoute>
+          <CodeIntake/>
+          </ProtectedRoute>
+          }/>
+          
           
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/leaderboard" element={<Leaderboard/>}/>
