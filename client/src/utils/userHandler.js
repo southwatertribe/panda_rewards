@@ -26,7 +26,7 @@ export const userHandler = () => async (dispatch) => {
         const email = jwt_decode(accessToken)['email']
         
         //Get user info from db to update current state
-        let user = await axios.get("http://localhost:3001/login/getUser/:email", {
+        let user = await axios.get("https://panda-backend.herokuapp.com/login/getUser/:email", {
             params: {
                 email
             }

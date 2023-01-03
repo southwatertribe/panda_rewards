@@ -31,7 +31,7 @@ function LoginPage() {
         
         // //TODO CHECK IF USER EXISTS IN DB IN ROUTE BEFORE ADDING!
         // Get user to check if they exist 
-        let user = await axios.get("http://localhost:3001/login/getUser/:email", {
+        let user = await axios.get("https://panda-backend.herokuapp.com/login/getUser/:email", {
             params: {
                 email: userIdObject['email']
             }
@@ -43,7 +43,7 @@ function LoginPage() {
 
         if (Object.keys(user.data).length === 0) {
             //Calls api to send data into database IF NEVER DONE SO
-            axios.post('http://localhost:3001/login', {
+            axios.post('https://panda-backend.herokuapp.com/login', {
                       data: userIdObject
             })
         } 
@@ -87,7 +87,7 @@ function LoginPage() {
             <h1>Log In To Start Earning</h1>
              <div className="minecraft"><h4>Its a recession! You need it!</h4></div>
             <div style={{height: "100", width: "100", display: 'flex', alignItems: 'center',
-              justifyContent: 'center'}}><img src={Mascot} alt="BodegaCat" width="300"  /></div>
+              justifyContent: 'center'}}><img src={Mascot} alt="Mascot" width="300"  /></div>
             
             <div id="signIn" style={{
               display: 'flex',

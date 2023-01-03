@@ -62,7 +62,7 @@ function ResponsiveAppBar() {
             </li>
             <li>
               <Link 
-              to="/dashboard" 
+              to="/" 
               style={linkStyle}
               onClick={() => {
                 setIsNavExpanded(!isNavExpanded);

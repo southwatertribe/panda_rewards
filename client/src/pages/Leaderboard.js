@@ -8,7 +8,7 @@ function Leaderboard() {
   const getPlayers = async () => {
     if (players.length === 0) {
       console.log("eh>")
-        axios.get("http://localhost:3001/leaderboards/").then((res)=>{
+        axios.get("https://panda-backend.herokuapp.com/leaderboards/").then((res)=>{
         sortPlayers(res.data)
         setPlayers(res.data)       
       }).catch(console.error)      

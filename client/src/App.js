@@ -8,20 +8,35 @@ import Dashboard from './pages/Dashboard';
 import Leaderboard from './pages/Leaderboard';
 import CodeIntake from './pages/codeintakepage/CodeIntake';
 
-
+import ProtectedRoute from './utils/protectedRoute';
 
 
 
 function App() {
   return (
     <div className='App'>
-      <BrowserRouter>
-        <NavBarDos/>
-        <Routes>
-          <Route path="/" element={<Dashboard/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
+          <BrowserRouter>
+          <NavBarDos/>
+          <Routes>
+              <Route path="/dashboard" element={
+              <ProtectedRoute>
+              <Dashboard/>
+              </ProtectedRoute>
+              }/>
+              <Route path="/codeintake" element={
+              <ProtectedRoute>
+              <CodeIntake/>
+              </ProtectedRoute>
+              }/>
+              <Route path="/" element={
+              <ProtectedRoute>
+              <Dashboard/>
+              </ProtectedRoute>
+              }/>
+          
+          <Route path="/login" element={<LoginPage/>}/>
           <Route path="/leaderboard" element={<Leaderboard/>}/>
-          <Route path="/codeintake" element={<CodeIntake/>}/>
+          
         </Routes>
       </BrowserRouter>
     </div>

@@ -9,7 +9,7 @@ import "./userdash.css"
 
 
 function UserDash() {
-    const user = useSelector(state => state.persistedReducer.user.user )
+    const user = useSelector(state => state.persistedReducer.user.user)
     const totalRed = user.score/9
     const cash = totalRed * 6.15
   return (
