@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios';
@@ -16,14 +17,13 @@ function Leaderboard() {
   }
 
   const sortPlayers = (players) => {
-    let sortedPlayers = players.sort(
+    let players = players.sort(
       (p1, p2) => (p1.score < p2.score) ? 1 : (p1.score > p2.score) ? -1 : 0);
     console.log(players[0].score)
   }
   
   useEffect(() => {
-    getPlayers()
-    
+    getPlayers() 
   }, [])
     
   console.log(players)

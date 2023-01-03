@@ -2,7 +2,7 @@ import {configureStore} from '@reduxjs/toolkit';
 import  jwtAuthReducer  from '../jwtAuth';
 import userReducer from '../userSlice';
 import codeIntakeReducer from '../codeIntake.js';
-import storage from 'redux-persist/lib/storage';
+
 import storageSession from 'redux-persist/lib/storage/session'
 
 import { combineReducers } from 'redux';
