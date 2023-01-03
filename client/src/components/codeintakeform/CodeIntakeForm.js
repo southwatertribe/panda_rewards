@@ -8,7 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import {useSelector} from 'react-redux';
 
 import {useDispatch} from 'react-redux';
-import { getCodeEntry } from '../../redux/codeIntakeSlice';
+import { getCodeEntry } from '../../redux/codeIntake';
 
 
 
