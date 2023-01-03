@@ -12,8 +12,7 @@ import {useSelector} from 'react-redux';
 function Dashboard() {
 
   const isLoggedIn = useSelector(state => state.persistedReducer.auth.auth)
-  
-  
+   
   return (
     <div>
         {isLoggedIn ? <UserDash/>: <LoginPage/>}
