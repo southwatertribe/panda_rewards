@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import  jwtAuthReducer  from '../jwtAuth';
 import userReducer from '../userSlice';
-import codeIntakeReducer from '../codeIntakeSlice.js';
+// import codeIntakeReducer from '../codeIntakeSlice.js';
 import storage from 'redux-persist/lib/storage';
 import storageSession from 'redux-persist/lib/storage/session'
 
@@ -24,7 +24,8 @@ const persistConfig = {
 const reducers = combineReducers({
     auth: jwtAuthReducer,
     user: userReducer,
-    code: codeIntakeReducer});
+    // code: codeIntakeReducer
+});
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
