@@ -1,4 +1,4 @@
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios';
@@ -23,7 +23,8 @@ function Leaderboard() {
   }
   
   useEffect(() => {
-    getPlayers() 
+    getPlayers()
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, [])
     
   console.log(players)
