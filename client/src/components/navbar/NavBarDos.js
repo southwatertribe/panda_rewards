@@ -24,7 +24,7 @@ function ResponsiveAppBar() {
    const [isNavExpanded, setIsNavExpanded] = useState(false)
   return (
     <nav className="navigation">
-      <img src={Panda} alt="BodegaCat" width="70" />
+      <img src={Panda} alt="mascot" width="70" />
       <div>
       <a href="/" className="brand-name" style={linkStyle}>
         Panda Rewards Bot
