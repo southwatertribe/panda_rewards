@@ -155,7 +155,7 @@ function CodeIntakeForm() {
           <button type='submit' className='codeSubmission'>send code to bot</button>
         </div>
       </form>
-    </div>: <div><p>Panda Bot is slaving away over at Amazon Data Centers...</p><CircularProgress color='secondary'/></div>}
+    </div>: <div className='main-form'><p style={{margin: "50px"}}>Panda Bot is slaving away over at Amazon Data Centers...</p><CircularProgress color='secondary'/></div>}
     <div style={{marginTop: "60px"}}>
         <h3>Your 22 character long code should be on your receipt.</h3>
     </div>
