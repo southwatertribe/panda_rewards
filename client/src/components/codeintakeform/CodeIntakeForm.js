@@ -52,7 +52,7 @@ function CodeIntakeForm() {
     
   dispatch(getCodeEntry(code))
 
-    axios.post("/api/codeintake/",
+    axios.post("http://localhost:3001/codeintake/",
        userInfo      
     ).then((res)=> {
       setResult(res.data)
