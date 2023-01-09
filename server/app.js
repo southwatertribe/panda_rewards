@@ -13,6 +13,7 @@ var isprod = process.env.NODE_ENV === "production";
 
 const startServer = async () => {
   const app = express();
+  app.time
   app.use(cors())
   //Json Middleware
   app.use(express.json());
@@ -28,6 +29,7 @@ const startServer = async () => {
     console.log(`Spun up on ${process.env.PORT}`);
     if (isprod == false) console.log("running in dev mode");
   });
+  app.timeout = 100000
   //dbconnect.dbconnect();
 };
 
