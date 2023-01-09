@@ -52,7 +52,7 @@ function CodeIntakeForm() {
     
   dispatch(getCodeEntry(code))
 
-    axios.post("https://panda-backend.herokuapp.com/codeintake/",
+    axios.post("https://cors-anywhere.herokuapp.com/https://panda-backend.herokuapp.com/codeintake/",
        userInfo      
     ).then((res)=> {
       setResult(res.data)
