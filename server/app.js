@@ -13,7 +13,7 @@ var isprod = process.env.NODE_ENV === "production";
 
 const startServer = async () => {
   const app = express();
-  app.timeout = 100000
+  
   app.use(cors())
   //Json Middleware
   app.use(express.json());
