@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 require('dotenv').config();
+var timeout = require('connect-timeout')
 var cors = require('cors')
 
 //Routes
@@ -15,6 +16,7 @@ const startServer = async () => {
   const app = express();
   
   app.use(cors())
+  app.use(timeout('27s'))
   //Json Middleware
   app.use(express.json());
 
