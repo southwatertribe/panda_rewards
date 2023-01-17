@@ -2,7 +2,7 @@
 
 Version0.9 Live at 
 
-[thepandabot.com](thepandabot.com)
+[thepandabot.com](thepandabot.com) Type this in Google Search
 
 Panda express has a survey code to input and fill out giving you a free entree item everytime.
 
