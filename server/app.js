@@ -16,7 +16,7 @@ const startServer = async () => {
   const app = express();
   
   app.use(cors())
-  app.use(timeout('27s'))
+  app.use(timeout('30s'))
   //Json Middleware
   app.use(express.json());
 
