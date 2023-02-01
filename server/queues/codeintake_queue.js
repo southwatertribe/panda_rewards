@@ -20,12 +20,12 @@ const codeIntakeQueue = new Queue(queueName, { redis: { port: redisPort, host: r
 // })
 
 codeIntakeQueue.process(
-    async (job) => {
+    (job) => {
     
         console.log("You made it here")
         // console.log("AND: " + job)
         //Store the response, because we need to see if this worked in order to increment score in database
-        const resp = await axios.post("https://6gzwnr5576chzorjos2vmii4jq0kzunw.lambda-url.us-west-1.on.aws/", {
+        const resp =  axios.post("https://6gzwnr5576chzorjos2vmii4jq0kzunw.lambda-url.us-west-1.on.aws/", {
           
             job
         
