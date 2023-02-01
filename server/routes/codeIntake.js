@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const codeIntake = require('../controllers/codeSubmit')
-const sendCode = require('../queues/codeintake_queue')
+const sendCode = require('../queues/codeintake_queue').default
 
 router.post("/", async function (req, res, next) {
     let userData = await req.body
