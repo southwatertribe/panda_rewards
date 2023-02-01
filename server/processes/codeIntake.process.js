@@ -22,6 +22,8 @@ const codeIntakeProcess = async (job) => {
 
     }
 
+    console.log(message)
+
     return message
 
 }
