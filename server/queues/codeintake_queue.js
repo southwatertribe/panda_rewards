@@ -19,8 +19,8 @@ const codeIntakeQueue = new Queue(queueName, { redis: { port: redisPort, host: r
 //     console.log(`processing ${jobData}`)
 // })
 
-codeIntakeQueue.process(
-    (job) => {
+codeIntakeQueue.process( 
+    function  (job) {
     
         console.log("You made it here")
         // console.log("AND: " + job)
