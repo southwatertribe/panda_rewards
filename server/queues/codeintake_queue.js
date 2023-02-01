@@ -13,6 +13,4 @@ const sendCode = (data)=> {
     })
 }
 
-export  {
-    sendCode
-}
+module.exports = { sendCode}
