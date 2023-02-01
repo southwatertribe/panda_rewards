@@ -15,7 +15,6 @@ import { getCodeEntry } from '../../redux/codeIntake';
 function CodeIntakeForm() {
 
   const user = useSelector(state => state.persistedReducer.user.user )
-
   const dispatch = useDispatch();
 
   //Code State
@@ -52,7 +51,7 @@ function CodeIntakeForm() {
     
   dispatch(getCodeEntry(code))
 
-    axios.post("https://panda-backend.herokuapp.com/codeintake/",
+    axios.post("https://panda-backend.herokuapp.com/codeintake/redistest",
        userInfo      
     ).then((res)=> {
       setResult(res.data)
