@@ -49,10 +49,8 @@ codeIntakeQueue.process(
     }
 )
 
-const sendCode = (data)=> {
-    codeIntakeQueue.add(data, {
-        
-    })
+const sendCode = async (data)=> {
+   await codeIntakeQueue.add(data)
 }
 
 
