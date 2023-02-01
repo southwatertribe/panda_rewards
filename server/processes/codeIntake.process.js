@@ -1,4 +1,6 @@
-import { Job } from 'bull';
+// import { Job } from 'bull';
+
+const Job = require('bull')
 
 const codeIntakeProcess = async (job) => {
 
