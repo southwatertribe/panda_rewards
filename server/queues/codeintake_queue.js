@@ -33,18 +33,18 @@ codeIntakeQueue.process(
         
         })
     
-        // //Debug DELETE IN PROD
-        // message = resp['data']
-        // console.log(message)
+        //Debug DELETE IN PROD
+        message = resp['data']
+        console.log(message)
         
     
-        // if(message == "Sucess"){
-        //     //TODO INCREMENT SCORE
-        //     response = await dbFuncs.incrementScore(entry.user.user_email)
+        if(message == "Sucess"){
+            //TODO INCREMENT SCORE
+            response = await dbFuncs.incrementScore(entry.user.user_email)
     
-        // }
+        }
     
-        // console.log(message)
+        console.log(message)
     
         return message
     
