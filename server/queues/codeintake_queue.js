@@ -4,7 +4,7 @@ const Queue = require('bull')
 
 const codeIntakeProcess = require('../processes/codeIntake.process')
 const codeIntakeQueue = new Queue('codeIntake', {
-    redis: "redis://127.0.0.1:6379"
+    redis: "redis://localhost:6379"
 })
 
 codeIntakeQueue.process(codeIntakeProcess.codeIntakeProcess)
