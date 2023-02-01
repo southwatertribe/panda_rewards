@@ -22,6 +22,7 @@ router.post("/redistest", async function (req, res, next) {
     // console.log("THE REQUEST")
     // console.log(req)
     const message = await sendCode.sendCode(userData)
+    console.log("Past the message")
 
     res.json(message)
 })
