@@ -1,7 +1,9 @@
 // import Bull from 'bull'
 const Queue = require('bull')
+const axios = require('axios')
 // import codeIntakeProcess from '../processes/codeIntake.process'
 const codeIntakeProcess = require('../processes/codeIntake.process')
+
 
 
 const redisHost = process.env.REDIS_HOST || '0.0.0.0';
@@ -20,12 +22,12 @@ const codeIntakeQueue = new Queue(queueName, { redis: { port: redisPort, host: r
 // })
 
 codeIntakeQueue.process( 
-    function  (job) {
+    async (job)=> {
     
         console.log("You made it here")
         // console.log("AND: " + job)
         //Store the response, because we need to see if this worked in order to increment score in database
-        const resp =  axios.post("https://6gzwnr5576chzorjos2vmii4jq0kzunw.lambda-url.us-west-1.on.aws/", {
+        const resp = await axios.post("https://6gzwnr5576chzorjos2vmii4jq0kzunw.lambda-url.us-west-1.on.aws/", {
           
             job
         
@@ -50,7 +52,7 @@ codeIntakeQueue.process(
 )
 
 const sendCode =  (data)=> {
-    console.log("Did you make it here?")
+    console.log("Entering Queue")
     codeIntakeQueue.add(data)
 }
 
