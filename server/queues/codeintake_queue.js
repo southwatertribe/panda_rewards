@@ -50,6 +50,7 @@ codeIntakeQueue.process(
 )
 
 const sendCode =  (data)=> {
+    console.log("Did you make it here?")
     codeIntakeQueue.add(data)
 }
 
