@@ -1,13 +1,13 @@
 // import Bull from 'bull'
-const Bull = require('bull')
+const Queue = require('bull')
 // import codeIntakeProcess from '../processes/codeIntake.process'
 
 const codeIntakeProcess = require('../processes/codeIntake.process')
-const codeIntakeQueue = new Bull('codeIntake', {
+const codeIntakeQueue = new Queue('codeIntake', {
     redis: "redis://127.0.0.1:6379"
 })
 
-codeIntakeQueue.process(codeIntakeProcess)
+// codeIntakeQueue.process(codeIntakeProcess)
 
 const sendCode = (data)=> {
     codeIntakeQueue.add(data, {
