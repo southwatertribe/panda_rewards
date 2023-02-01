@@ -26,4 +26,6 @@ const codeIntakeProcess = async (job) => {
 
 }
 
-export default codeIntakeProcess;
+
+module.exports = {codeIntakeProcess}
+// export default codeIntakeProcess;
