@@ -15,15 +15,15 @@ router.post("/", async function (req, res, next) {
 })
 
 
-router.post("/redistest", async function (req, res, next) {
-    let userData = await req.body
-    console.log("IN THE ROUTE")
-    console.log(userData)
-    // console.log("THE REQUEST")
-    // console.log(req)
-    const message = await sendCode(userData)
+// router.post("/redistest", async function (req, res, next) {
+//     let userData = await req.body
+//     console.log("IN THE ROUTE")
+//     console.log(userData)
+//     // console.log("THE REQUEST")
+//     // console.log(req)
+//     const message = await sendCode(userData)
 
-    res.json(message)
-})
+//     res.json(message)
+// })
 
 module.exports = router
