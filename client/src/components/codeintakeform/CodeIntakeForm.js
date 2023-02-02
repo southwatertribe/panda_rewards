@@ -51,7 +51,7 @@ function CodeIntakeForm() {
     
   dispatch(getCodeEntry(code))
 
-    axios.post("https://panda-backend.herokuapp.com/codeintake/redistest", //redistest
+    axios.post("https://panda-backend.herokuapp.com/codeintake/", //redistest
        userInfo      
     ).then((res)=> {
       setResult(res.data)
