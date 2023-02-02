@@ -20,12 +20,12 @@ router.post("/redistest", async function (req, res, next) {
     console.log("IN THE ROUTE")
     console.log(userData)
     // console.log("THE REQUEST")
-    // console.log(req)
-    const message =  await sendCode.sendCode(userData)
+    // console.log(req) //const message =  
+    await sendCode.sendCode(userData)
     console.log("Past the message")
-    console.log(message)
+    // console.log(message)
 
-    res.json(message)
+    // res.json(message)
 })
 
 module.exports = router
