@@ -12,6 +12,8 @@ import '../loginPage/login.css'
 //Assets
 import Mascot from '../../assets/panda-logo.png'
 
+//Phrases
+import phrases from "../../phrases/phrases.json"
 //Redux
 import {useDispatch} from 'react-redux';
 import { signedIn} from '../../redux/jwtAuth';
@@ -49,7 +51,7 @@ function LoginPage() {
         
        
 
-        
+        console.log(phrases)
         
         //Update global state to logged in    
         dispatch(signedIn());
@@ -80,12 +82,14 @@ function LoginPage() {
         google.accounts.id.prompt();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
+
+      
       
       return (
         
           <div className="main-login-card">
             <h1>Log In To Start Earning</h1>
-             <div className="minecraft"><h4>Its a recession! You need it!</h4></div>
+             <div className="minecraft"><h4>{phrases[Math.floor(Math.random() * Object.keys(phrases).length)]}</h4></div>
             <div style={{height: "100", width: "100", display: 'flex', alignItems: 'center',
               justifyContent: 'center'}}><img src={Mascot} alt="Mascot" width="300"  /></div>
             
