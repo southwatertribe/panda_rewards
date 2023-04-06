@@ -90,7 +90,38 @@ const getAllPlayers = async()=> {
   return players;
 }
 
-module.exports = {addOrUpdateUser, getUser, incrementScore, getAllPlayers};
+const check_tasks = async(task_id)=>{
+  const TABLE_NAME = "survey_tasks";
+
+  console.log(`Reached check_tasks controller: ${task_id}`)
+
+  const params = {
+    TableName: TABLE_NAME,
+    Key: {
+      task_id : task_id,
+    },
+  };
+
+  try {
+    const data = await dynamoClient.get(params).promise();
+    
+    if (data.Item) {
+      const response = { status: data.Item.status, result: data.Item.result }
+      return response 
+      
+    } else {
+      const response = { message: 'Task not found' }
+      return response 
+    }
+  } catch (error) {
+    console.error(error);
+    const response = { message: 'Internal server error' }
+    return response
+  }
+
+}
+
+module.exports = {addOrUpdateUser, getUser, incrementScore, getAllPlayers, check_tasks};
 
 
 

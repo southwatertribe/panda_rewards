@@ -1,31 +1,38 @@
 const express = require("express")
 const router = express.Router()
 const codeIntake = require('../controllers/codeSubmit')
-const sendCode = require('../queues/codeintake_queue')
+const dbFuncs = require("../db/dynamo.js")
 
 router.post("/", async function (req, res, next) {
-    let userData = await req.body
+    let user_data = await req.body
     console.log("IN THE ROUTE")
-    console.log(userData)
+    console.log(user_data)
     // console.log("THE REQUEST")
     // console.log(req)
-    const message = await codeIntake.codeSubmit(userData)
+    const task_id = await codeIntake.codeSubmit(user_data)
 
-    res.json(message)
+    console.log(`CodeIntake.js line 14: ${task_id}`)
+
+    const response = {
+        'statusCode': 200,
+        'body': {"task_id": task_id},
+        'headers': {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    res.json(response)
 })
 
+//Fetches task status
+router.get("/task_status", async function(req,res,next) {
+  const task_id = req.query.task_id;
+  console.log(`Task_id in task_status route: ${task_id}`)
+  const response = await dbFuncs.check_tasks(task_id)
+  console.log(JSON.stringify(response))
+  res.json(response)
+  
+});
 
-router.post("/redistest", async function (req, res, next) {
-    let userData = await req.body
-    console.log("IN THE ROUTE")
-    console.log(userData)
-    // console.log("THE REQUEST")
-    // console.log(req) //const message =  
-    await sendCode.sendCode(userData)
-    console.log("Past the message")
-    // console.log(message)
-
-    // res.json(message)
-})
 
 module.exports = router

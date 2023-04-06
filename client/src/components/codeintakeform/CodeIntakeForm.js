@@ -16,6 +16,40 @@ function CodeIntakeForm() {
 
   const user = useSelector(state => state.persistedReducer.user.user )
   const dispatch = useDispatch();
+  //POLLING UTILS
+  //Functions
+  async function getTaskStatus(task_id) {
+    
+    console.log("fehbfbdiv")
+    const response = await axios.get("http://localhost:3001/codeintake/task_status", {params: {task_id: task_id}});
+    console.log(`get taskstatus: ${response}}`)
+    
+   return response
+  }
+  async function pollTaskStatus(task_id, retries = 0) {
+    const MAX_RETRIES = 2
+
+    if (retries >= MAX_RETRIES) {
+      console.log("Max retries reached. Stopping polling.");
+      setResult("Task did not complete in time. Please try again later.");
+      setWorking(false);
+      return;
+    }
+
+    const response = await getTaskStatus(task_id);
+    console.log("huhhhh?????")
+    if (response === 'success' || response === 'fail') {
+      setWorking(false);
+      setResult(result);
+    } else {
+      console.log(`Retries = ${retries}`)
+      retries += 1
+      setTimeout(() => pollTaskStatus(task_id, retries), 5000); // Poll every 3 seconds
+    }
+  }
+  
+
+
 
   //Code State
   const [CN1, setCN1] = useState('');
@@ -31,7 +65,7 @@ function CodeIntakeForm() {
 
 
   
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
     setResult(null)
     setWorking(true)
@@ -51,16 +85,43 @@ function CodeIntakeForm() {
     
   dispatch(getCodeEntry(code))
 
-    axios.post("https://panda-backend.herokuapp.com/codeintake/", //redistest
-       userInfo      
-    ).then((res)=> {
-      setResult(res.data)
-      setWorking(false)
-    }).catch((err)=>{
-      console.log("Error was: " + err)
-      setResult(err)
-      setWorking(false)
-    })
+  try{
+      const response = await axios.post("http://localhost:3001/codeintake/", userInfo);
+      const task_id = response.data.body.task_id;
+      //settask_id(task_id);
+      console.log(`LINE 68: ${task_id}`)
+      // Start polling for the task status
+      pollTaskStatus(task_id);
+    } catch (err) {
+      console.log("Error was: " + err);
+      setResult(err);
+      setWorking(false);
+    }
+  
+
+    //https://panda-backend.herokuapp.com
+    // const response = axios.post("http://localhost:3001/codeintake/", //redistest
+    //    userInfo)
+       
+    // const task_id = response;
+
+    // ).then((response)=> {
+      
+    //   console.log(`Task Data: ${JSON.stringify(response.data.body.task_id)}`)
+    //   //setResult(res.data)
+
+
+    //   return response.data.body.task_id
+
+
+    //   //setWorking(false)
+    // }).catch((err)=>{
+    //   console.log("Error was: " + err)
+    //   setResult(err)
+    //   setWorking(false)
+    // })
+
+    
 
   }
 
