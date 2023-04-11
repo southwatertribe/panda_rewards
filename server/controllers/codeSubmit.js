@@ -9,7 +9,7 @@ const codeSubmit = async (entry) => {
         entry
     
     }).then((result) => {
-
+        console.log(`CodeSubmit: ${JSON.stringify(result.data)}`)
         const task_id = result.data.task_id
         console.log(`Task ID: ${task_id}`);
         return task_id;

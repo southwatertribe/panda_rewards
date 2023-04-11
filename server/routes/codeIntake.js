@@ -34,5 +34,10 @@ router.get("/task_status", async function(req,res,next) {
   
 });
 
+router.post("/increment-score", async function(req,res) {
+    let email = await req.body.email
+    console.log(`EMAIL EMAIL EMAIL: ${email}`)
+    await dbFuncs.incrementScore(email)
+})
 
 module.exports = router

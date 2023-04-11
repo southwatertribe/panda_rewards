@@ -14,20 +14,37 @@ import { getCodeEntry } from '../../redux/codeIntake';
 
 function CodeIntakeForm() {
 
+  //Code response state 
+  const [result, setResult] = useState(null);
+
   const user = useSelector(state => state.persistedReducer.user.user )
   const dispatch = useDispatch();
   //POLLING UTILS
   //Functions
+
+  //This checks a tasks status ggiven task id (returns object with status and result)
   async function getTaskStatus(task_id) {
-    
-    console.log("fehbfbdiv")
-    const response = await axios.get("http://localhost:3001/codeintake/task_status", {params: {task_id: task_id}});
-    console.log(`get taskstatus: ${response}}`)
-    
-   return response
+    const response = await axios.get("https://panda-backend.herokuapp.com/codeintake/task_status", {params: {task_id: task_id}});
+    return response
   }
+
+  async function incrementScore(email) {
+    const url = "https://panda-backend.herokuapp.com/codeintake/increment-score"
+    const data = { email: email}
+    try {
+      const response = await axios.post(url, data);
+  
+      // Handle the response
+      console.log(response.data);
+    } catch (error) {
+      // Handle the error
+      console.error(error);
+    }
+
+  }
+
   async function pollTaskStatus(task_id, retries = 0) {
-    const MAX_RETRIES = 2
+    const MAX_RETRIES = 11
 
     if (retries >= MAX_RETRIES) {
       console.log("Max retries reached. Stopping polling.");
@@ -37,10 +54,19 @@ function CodeIntakeForm() {
     }
 
     const response = await getTaskStatus(task_id);
-    console.log("huhhhh?????")
-    if (response === 'success' || response === 'fail') {
+    const status = response.data['status']
+    const result = response.data['result']
+    console.log(`pollTaskStatus: ${JSON.stringify(response.data['status'])}`)
+    if (status === "success") {
       setWorking(false);
       setResult(result);
+      //Update score if result is success
+      if (result === "success") {
+        incrementScore(user.user_email)        
+      }
+
+      
+      
     } else {
       console.log(`Retries = ${retries}`)
       retries += 1
@@ -60,8 +86,7 @@ function CodeIntakeForm() {
   const [CN6, setCN6] = useState('');
   const [isWorking, setWorking] = useState(false);
 
-  //Code response state 
-  const [result, setResult] = useState(null);
+  
 
 
   
@@ -98,29 +123,6 @@ function CodeIntakeForm() {
       setWorking(false);
     }
   
-
-    //https://panda-backend.herokuapp.com
-    // const response = axios.post("http://localhost:3001/codeintake/", //redistest
-    //    userInfo)
-       
-    // const task_id = response;
-
-    // ).then((response)=> {
-      
-    //   console.log(`Task Data: ${JSON.stringify(response.data.body.task_id)}`)
-    //   //setResult(res.data)
-
-
-    //   return response.data.body.task_id
-
-
-    //   //setWorking(false)
-    // }).catch((err)=>{
-    //   console.log("Error was: " + err)
-    //   setResult(err)
-    //   setWorking(false)
-    // })
-
     
 
   }
@@ -130,7 +132,7 @@ function CodeIntakeForm() {
     const message = props.result
     if (message === "Wrong Code!") {
       return <h1>Looks like that code did not work. Try it again.</h1>;      
-    } else if (message === "Sucess") {
+    } else if (message === "success") {
       return <h1>Survey was successfully completed! Check your email for your free entree 😏 it might be in your promotions folder.</h1>;
     } else{
       return <h1>Looks like theres a problem on our side, try again later.</h1>;
