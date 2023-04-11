@@ -111,7 +111,7 @@ function CodeIntakeForm() {
   dispatch(getCodeEntry(code))
 
   try{
-      const response = await axios.post("http://localhost:3001/codeintake/", userInfo);
+      const response = await axios.post("https://panda-backend.herokuapp.com/codeintake/", userInfo);
       const task_id = response.data.body.task_id;
       //settask_id(task_id);
       console.log(`LINE 68: ${task_id}`)
