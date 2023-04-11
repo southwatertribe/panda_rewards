@@ -24,12 +24,12 @@ function CodeIntakeForm() {
 
   //This checks a tasks status ggiven task id (returns object with status and result)
   async function getTaskStatus(task_id) {
-    const response = await axios.get("https://panda-backend.herokuapp.com/codeintake/task_status", {params: {task_id: task_id}});
+    const response = await axios.get("https://panda-backend.herokuapp.com/task_status", {params: {task_id: task_id}});
     return response
   }
 
   async function incrementScore(email) {
-    const url = "https://panda-backend.herokuapp.com/codeintake/increment-score"
+    const url = "https://panda-backend.herokuapp.com/increment-score"
     const data = { email: email}
     try {
       const response = await axios.post(url, data);
@@ -65,8 +65,6 @@ function CodeIntakeForm() {
         incrementScore(user.user_email)        
       }
 
-      
-      
     } else {
       console.log(`Retries = ${retries}`)
       retries += 1
@@ -111,7 +109,7 @@ function CodeIntakeForm() {
   dispatch(getCodeEntry(code))
 
   try{
-      const response = await axios.post("https://panda-backend.herokuapp.com/codeintake/", userInfo);
+      const response = await axios.post("https://panda-backend.herokuapp.com/", userInfo);
       const task_id = response.data.body.task_id;
       //settask_id(task_id);
       console.log(`LINE 68: ${task_id}`)
