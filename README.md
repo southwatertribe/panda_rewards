@@ -4,12 +4,25 @@ Version0.9 Live at
 
 [thepandabot.com](thepandabot.com) Type this in Google Search
 
+UPCOMING RELEASE
+DATE: 4/12/23
+Version1.0
+Updates --
+Implementing a polling service in order to prevent timeout errors and a smoother user experience
+Previoulsy the request to complete the suruvey would take around 20-30 seconds which would cause the API server to shutdown.
+Now there is a polling system and a temporary datastore qeuing these messages to make this work.
+
+
+Future Updates
+
+1. Immplement pagination to leaderboards
+2. Tap to view player profile
+3. More...
+
 Panda express has a survey code to input and fill out giving you a free entree item everytime.
 
 Make an account, input your code and automatically have your free entree reward emailed to you.
 Your redemptions are tracked and kept as a score to see how you compare to others in the leaderboards.
-
-
 
 #Selenium bot hosted on AWS Lambda
 https://github.com/southwatertribe/pandaRewards-Selenium-Bot
