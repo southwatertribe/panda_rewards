@@ -14,8 +14,68 @@ import { getCodeEntry } from '../../redux/codeIntake';
 
 function CodeIntakeForm() {
 
+  //Code response state 
+  const [result, setResult] = useState(null);
+
   const user = useSelector(state => state.persistedReducer.user.user )
   const dispatch = useDispatch();
+  //POLLING UTILS
+  //Functions
+
+  //This checks a tasks status ggiven task id (returns object with status and result)
+  async function getTaskStatus(task_id) {
+    const response = await axios.get("https://panda-backend.herokuapp.com/codeintake/task_status", {params: {task_id: task_id}});
+    return response
+  }
+
+  async function incrementScore(email) {
+    const url = "https://panda-backend.herokuapp.com/codeintake/increment-score"
+    const data = { email: email}
+    try {
+      const response = await axios.post(url, data);
+  
+      // Handle the response
+      console.log(response.data);
+    } catch (error) {
+      // Handle the error
+      console.error(error);
+    }
+
+  }
+
+  async function pollTaskStatus(task_id, retries = 0) {
+    const MAX_RETRIES = 11
+
+    if (retries >= MAX_RETRIES) {
+      console.log("Max retries reached. Stopping polling.");
+      setResult("Task did not complete in time. Please try again later.");
+      setWorking(false);
+      return;
+    }
+
+    const response = await getTaskStatus(task_id);
+    const status = response.data['status']
+    const result = response.data['result']
+    console.log(`pollTaskStatus: ${JSON.stringify(response.data['status'])}`)
+    if (status === "success") {
+      setWorking(false);
+      setResult(result);
+      //Update score if result is success
+      if (result === "success") {
+        incrementScore(user.user_email)        
+      }
+
+      
+      
+    } else {
+      console.log(`Retries = ${retries}`)
+      retries += 1
+      setTimeout(() => pollTaskStatus(task_id, retries), 5000); // Poll every 3 seconds
+    }
+  }
+  
+
+
 
   //Code State
   const [CN1, setCN1] = useState('');
@@ -26,12 +86,11 @@ function CodeIntakeForm() {
   const [CN6, setCN6] = useState('');
   const [isWorking, setWorking] = useState(false);
 
-  //Code response state 
-  const [result, setResult] = useState(null);
+  
 
 
   
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
     setResult(null)
     setWorking(true)
@@ -51,16 +110,20 @@ function CodeIntakeForm() {
     
   dispatch(getCodeEntry(code))
 
-    axios.post("https://panda-backend.herokuapp.com/codeintake/", //redistest
-       userInfo      
-    ).then((res)=> {
-      setResult(res.data)
-      setWorking(false)
-    }).catch((err)=>{
-      console.log("Error was: " + err)
-      setResult(err)
-      setWorking(false)
-    })
+  try{
+      const response = await axios.post("http://localhost:3001/codeintake/", userInfo);
+      const task_id = response.data.body.task_id;
+      //settask_id(task_id);
+      console.log(`LINE 68: ${task_id}`)
+      // Start polling for the task status
+      pollTaskStatus(task_id);
+    } catch (err) {
+      console.log("Error was: " + err);
+      setResult(err);
+      setWorking(false);
+    }
+  
+    
 
   }
 
@@ -69,7 +132,7 @@ function CodeIntakeForm() {
     const message = props.result
     if (message === "Wrong Code!") {
       return <h1>Looks like that code did not work. Try it again.</h1>;      
-    } else if (message === "Sucess") {
+    } else if (message === "success") {
       return <h1>Survey was successfully completed! Check your email for your free entree 😏 it might be in your promotions folder.</h1>;
     } else{
       return <h1>Looks like theres a problem on our side, try again later.</h1>;
