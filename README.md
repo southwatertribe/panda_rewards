@@ -1,12 +1,13 @@
 # The Panda Bot
 
-Version0.9 Live at 
+Version 1.0 Live Now
 
 [thepandabot.com](thepandabot.com) Type this in Google Search
 
-UPCOMING RELEASE
+RECENT RELEASE
 DATE: 4/12/23
 Version1.0
+Status: Complete
 Updates --
 Implementing a polling service in order to prevent timeout errors and a smoother user experience
 Previoulsy the request to complete the suruvey would take around 20-30 seconds which would cause the API server to shutdown.
