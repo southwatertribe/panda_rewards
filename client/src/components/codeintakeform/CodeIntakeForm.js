@@ -28,6 +28,10 @@ function CodeIntakeForm() {
     return response
   }
 
+  async function deleteTask(task_id){
+    const url = "https://panda-backend.herokuapp.com/codeintake/delete-task"
+
+  }
   async function incrementScore(email) {
     const url = "https://panda-backend.herokuapp.com/codeintake/increment-score"
     const data = { email: email}
@@ -50,6 +54,8 @@ function CodeIntakeForm() {
       console.log("Max retries reached. Stopping polling.");
       setResult("Task did not complete in time. Please try again later.");
       setWorking(false);
+      //Delete task if it didnt complete max tries
+
       return;
     }
 
@@ -60,6 +66,8 @@ function CodeIntakeForm() {
     if (status === "success") {
       setWorking(false);
       setResult(result);
+      //Delete the task once complete
+      
       //Update score if result is success
       if (result === "success") {
         incrementScore(user.user_email)        
@@ -68,7 +76,7 @@ function CodeIntakeForm() {
     } else {
       console.log(`Retries = ${retries}`)
       retries += 1
-      setTimeout(() => pollTaskStatus(task_id, retries), 5000); // Poll every 3 seconds
+      setTimeout(() => pollTaskStatus(task_id, retries), 5000); // Poll every 5 seconds
     }
   }
   
@@ -90,7 +98,8 @@ function CodeIntakeForm() {
   
   const submitForm = async (e) => {
     e.preventDefault();
-    setResult(null)
+    if (isWorking == false) {
+      setResult(null)
     setWorking(true)
     const code = {
       CN1: CN1,
@@ -122,6 +131,10 @@ function CodeIntakeForm() {
     }
   
     
+      
+    } else {
+      console.log("Stop doing that bro")
+    }
 
   }
 
