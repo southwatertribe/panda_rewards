@@ -2,7 +2,7 @@
 
 Version 1.0 Live Now
 
-[thepandabot.com](thepandabot.com) Type this in Google Search
+[thepandabot.com](https://thepandabot.com/login) Link
 
 RECENT RELEASE
 DATE: 4/12/23
