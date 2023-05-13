@@ -28,10 +28,10 @@ function CodeIntakeForm() {
     return response
   }
 
-  async function deleteTask(task_id){
-    const url = "https://panda-backend.herokuapp.com/codeintake/delete-task"
+  // async function deleteTask(task_id){
+  //   const url = "https://panda-backend.herokuapp.com/codeintake/delete-task"
 
-  }
+  // }
   async function incrementScore(email) {
     const url = "https://panda-backend.herokuapp.com/codeintake/increment-score"
     const data = { email: email}
