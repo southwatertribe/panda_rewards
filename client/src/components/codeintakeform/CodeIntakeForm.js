@@ -98,7 +98,7 @@ function CodeIntakeForm() {
   
   const submitForm = async (e) => {
     e.preventDefault();
-    if (isWorking == false) {
+    if (isWorking === false) {
       setResult(null)
     setWorking(true)
     const code = {
