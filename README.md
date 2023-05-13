@@ -2,7 +2,7 @@
 
 Version 1.0 Live Now
 
-[thepandabot.com](thepandabot.com) Type this in Google Search
+[thepandabot.com](https://thepandabot.com/login) Link
 
 RECENT RELEASE
 DATE: 4/12/23
@@ -18,7 +18,8 @@ Future Updates
 
 1. Immplement pagination to leaderboards
 2. Tap to view player profile
-3. More...
+3. Implement more survey hacks for free stuff
+4. More...
 
 Panda express has a survey code to input and fill out giving you a free entree item everytime.
 
