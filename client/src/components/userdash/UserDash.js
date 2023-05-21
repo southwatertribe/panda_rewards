@@ -27,7 +27,7 @@ function UserDash() {
           <p>Total Redemptions: {totalRed}</p>
         </div>
         <div>
-          <p>Money Saved: ${cash}</p>
+          <p>Money Saved: ${cash.toFixed(2)}</p>
         </div>
       </div>
     </div>
