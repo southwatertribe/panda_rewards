@@ -92,7 +92,14 @@ function LoginPage() {
              <div className="minecraft"><h4>{phrases[Math.floor(Math.random() * Object.keys(phrases).length)]}</h4></div>
             <div style={{height: "100", width: "100", display: 'flex', alignItems: 'center',
               justifyContent: 'center'}}><img src={Mascot} alt="Mascot" width="300"  /></div>
-            
+                <p style={{marginTop: '50px'}}>
+                  Automate your Panda Express survey and get a free entree, every time.
+                </p>
+                <p>
+                  Just submit the code on the back of your receipt.
+                </p>
+                {/* <img src='https://www.pandaguestexperience.com/Projects/PRG2_CSI/images/Receipt.png' alt='receipt' width="300"/> */}
+          
             <div id="signIn" style={{
               display: 'flex',
               alignItems: 'center',
