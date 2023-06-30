@@ -3,6 +3,8 @@ import React from 'react'
 //styles
 import "./players.css"
 
+
+
 export default function players({ players }) {
     return (
           <div id="profile">
@@ -50,9 +52,9 @@ function LeaderBoardItem(players) {
                             <div className="info">
                                 <h3 >{value.f_name}</h3>    
                                 <span>{value.l_name}</span>
-                                <>
-                                    {index} === 0 ? <img src={value.profile} alt="1st place"></img> : <></>
-                                </>
+                                
+                                    {{index} === 0 ? <img src={"../../assets/crown.png"} alt="1st place"></img>: <></>}
+                                
                             </div>                
                         </div>
                         <div className="item">
