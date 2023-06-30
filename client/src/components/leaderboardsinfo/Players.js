@@ -3,6 +3,8 @@ import React from 'react'
 //styles
 import "./players.css"
 
+import crown from "../../assets/crown.png"
+
 
 
 export default function players({ players }) {
@@ -52,7 +54,7 @@ function LeaderBoardItem(players) {
                             <div className="info">
                                 <h3 >{value.f_name}</h3>    
                                 <span>{value.l_name}</span>
-                                {{index} === 0 ? <h1>First Place</h1>: <></>}
+                                {index === 0 ? <img src={crown} alt="1st place"></img>: <></>}
                             </div>                
                         </div>
                         <div className="item">
