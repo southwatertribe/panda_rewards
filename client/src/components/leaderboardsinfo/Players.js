@@ -51,7 +51,7 @@ function LeaderBoardItem(players) {
                                 <h3 >{value.f_name}</h3>    
                                 <span>{value.l_name}</span>
                                 <>
-                                    {index} === 0 ? <img src={value.profile}></img> : <></>
+                                    {index} === 0 ? <img src={value.profile} alt="1st place"></img> : <></>
                                 </>
                             </div>                
                         </div>
