@@ -46,6 +46,9 @@ function LeaderBoardItem(players) {
                         <div className="item">
                             <p className='place'>{index + 1}</p>
                             <img src={value.profile} className="lb-profile" alt="" />
+                            <>
+                                index === 0 ? <img src={value.profile}></img> : <></>
+                            </>
                             <div className="info">
                                 <h3 >{value.f_name}</h3>    
                                 <span>{value.l_name}</span>
