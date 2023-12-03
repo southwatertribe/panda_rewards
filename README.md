@@ -1,6 +1,6 @@
 # The Panda Bot
 
-Version 1.0 Live Now
+Site Live But API Inactive since hosting is no longer free
 
 [thepandabot.com](https://thepandabot.com/login) Link
 
